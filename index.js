@@ -8,7 +8,7 @@
  *
  * @return  {string}        Sanitized text with html elements
  */
-module.exports = sanitizeHTMLString(html, disallowedTags = ['SCRIPT', 'STYLE']) {
+module.exports = function sanitizeHTMLString(html, disallowedTags = ['SCRIPT', 'STYLE']) {
   if (!html) return '';
   if (typeof html !== 'string') throw Error('Invalid template string value');
   let result = html;
