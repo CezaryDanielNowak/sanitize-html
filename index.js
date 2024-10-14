@@ -1,6 +1,6 @@
 /**
  * Sanitize HTML elements in the template string
- * Removes <script>, <style> and html elements with event handler - OL-2342
+ * Removes <script>, <style> and html elements with event handler
  * Clears tags that are not properly closed
  *
  * @param   {string}  html  Text that contains html elements
