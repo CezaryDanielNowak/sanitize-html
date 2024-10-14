@@ -7,15 +7,20 @@ Browser only as for now.
 - Library is small. No twisted regexps.
 - It's secure. We are using browser to do all the magic for us.
 
-# API
+## API
 ```
 sanitizeHTMLString(htmlString, disallowedTags);
 ```
+
 
 For invalid `htmlString` an error is thrown: 'Invalid template string value'
 
 Default `disallowedTags` are `['SCRIPT', 'STYLE']``
 
+## Installation
+```
+npm install simple-sanitize-html
+```
 
 ## Usage
 ```
