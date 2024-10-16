@@ -12,10 +12,9 @@ Browser only as for now.
 sanitizeHTMLString(htmlString, disallowedTags);
 ```
 
-
 For invalid `htmlString` an error is thrown: 'Invalid template string value'
 
-Default `disallowedTags` are `['SCRIPT', 'STYLE']``
+Default `disallowedTags` are `'SCRIPT', 'STYLE', 'LINK', 'OBJECT', 'EMBED', 'IFRAME', 'FRAME', 'HTML', 'BASE', 'META'`
 
 ## Installation
 ```
@@ -43,4 +42,13 @@ satitizeHTML('<test ONMOUSEOVER="() => {}"></test>');
 
 satitizeHTML('abc <strong onclick="alert(\'\')" onmouseover="alert(\'\')">strong</strong> xyz');
 // 'abc <strong>strong</strong> xyz',
+
+satitizeHTML('<form><button formaction=javascript&colon;alert(1)>CLICKME');
+// '<form><button>CLICKME</button></form>',
+
+satitizeHTML('<a href=" &#14;  javascript:alert(\'XSS\');">Click Me</a>');
+// '<a>Click Me</a>',
 ```
+
+## Security
+simple-sanitize-html was created to avoid vulnerabilities listed on the [OWASP Cheat Sheet about XSS](https://cheatsheetseries.owasp.org/cheatsheets/XSS_Filter_Evasion_Cheat_Sheet.html)
